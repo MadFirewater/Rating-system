@@ -15,14 +15,12 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
+
     @Autowired
     private Environment env;
 
     @Autowired
     private DataSource dataSource;
-//
-//    @Autowired
-//    private LocalContainerEntityManagerFactoryBean entityManagerFactory;
 
     @Bean
     public DataSource dataSource() {
@@ -54,16 +52,4 @@ public class DatabaseConfig {
 
         return entityManagerFactory;
     }
-
-//    @Bean
-//    public JpaTransactionManager transactionManager() {
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(entityManagerFactory.getObject());
-//        return transactionManager;
-//    }
-//
-//    @Bean
-//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-//        return new PersistenceExceptionTranslationPostProcessor();
-//    }
 }

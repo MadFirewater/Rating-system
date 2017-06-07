@@ -1,6 +1,6 @@
 package com.chdtu.repository;
 
-import com.chdtu.domain.User;
+import com.chdtu.domain.auth.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

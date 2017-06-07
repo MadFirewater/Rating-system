@@ -1,12 +1,13 @@
-package com.chdtu.domain;
+package com.chdtu.domain.auth;
 
+import com.chdtu.domain.BaseEntity;
+import com.chdtu.domain.Student;
+import com.chdtu.domain.Teacher;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -19,7 +20,17 @@ public class User extends BaseEntity implements UserDetails {
     private String password;
 
     @ManyToOne
-    Group group;
+    @JoinColumn(nullable = false)
+    private UserGroup userGroup;
+
+    @ManyToOne
+    @JoinColumn(nullable = true)
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(nullable = true)
+    private Teacher teacher;
+
 
     public String getUsername() {
         return username;
@@ -51,7 +62,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Arrays.asList(getUserGroup());
     }
 
     public String getPassword() {
@@ -62,11 +73,27 @@ public class User extends BaseEntity implements UserDetails {
         this.password = password;
     }
 
-    public Group getGroup() {
-        return group;
+    public UserGroup getUserGroup() {
+        return userGroup;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setUserGroup(UserGroup userGroup) {
+        this.userGroup = userGroup;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }
