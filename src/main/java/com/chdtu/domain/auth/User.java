@@ -21,7 +21,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private UserGroup userGroup;
+    private Role role;
 
     @ManyToOne
     @JoinColumn(nullable = true)
@@ -62,7 +62,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(getUserGroup());
+        return Arrays.asList(getRole());
     }
 
     public String getPassword() {
@@ -73,12 +73,12 @@ public class User extends BaseEntity implements UserDetails {
         this.password = password;
     }
 
-    public UserGroup getUserGroup() {
-        return userGroup;
+    public Role getRole() {
+        return role;
     }
 
-    public void setUserGroup(UserGroup userGroup) {
-        this.userGroup = userGroup;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Student getStudent() {

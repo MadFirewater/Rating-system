@@ -9,7 +9,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ROLE")
-public class UserGroup extends BaseEntity implements GrantedAuthority {
+public class Role extends BaseEntity implements GrantedAuthority {
     private String name;
 
     public String getName() {
