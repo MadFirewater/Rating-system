@@ -12,6 +12,13 @@ import javax.persistence.Transient;
 public class Role extends BaseEntity implements GrantedAuthority {
     private String name;
 
+    public Role() {
+    }
+
+    public Role(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,6 +30,6 @@ public class Role extends BaseEntity implements GrantedAuthority {
     @Transient
     @Override
     public String getAuthority() {
-        return "ROLE_"+getName();
+        return "ROLE_" + getName();
     }
 }

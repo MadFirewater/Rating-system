@@ -6,9 +6,11 @@ import java.util.Set;
 
 @Entity
 public class Faculty extends BaseEntity {
+
     String name;
+
     @OneToMany(mappedBy = "faculty")
-    Set<Group> groups;
+    Set<Department> departments;
 
     public String getName() {
         return name;
@@ -18,12 +20,12 @@ public class Faculty extends BaseEntity {
         this.name = name;
     }
 
-    public Set<Group> getGroups() {
-        return groups;
+    public Set<Department> getDepartments() {
+        return departments;
     }
 
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
+    public void setDepartments(Set<Department> departments) {
+        this.departments = departments;
     }
 }
 

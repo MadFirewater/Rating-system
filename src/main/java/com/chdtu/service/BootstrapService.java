@@ -1,7 +1,7 @@
 package com.chdtu.service;
 
-import com.chdtu.domain.auth.User;
 import com.chdtu.domain.auth.Role;
+import com.chdtu.domain.auth.User;
 import com.chdtu.repository.RoleRepository;
 import com.chdtu.repository.UserRepository;
 import org.springframework.beans.factory.InitializingBean;
@@ -21,16 +21,17 @@ public class BootstrapService implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        if(((List<User>) userRepository.findAll()).size()==0){
-            User user=new User();
-            Role role =new Role();
-            role.setName("ADMIN");
-            roleRepository.save(role);
+        if (((List<User>) userRepository.findAll()).size() == 0) {
+            User user = new User();
+            roleRepository.save(new Role("ADMIN"));
+            roleRepository.save(new Role("TEACHER"));
+            roleRepository.save(new Role("STUDENT"));
             user.setUsername("admin");
             user.setPassword("admin");
             user.setRole(roleRepository.findOne(1L));
             userRepository.save(user);
-        };
+        }
+        ;
 
     }
 }

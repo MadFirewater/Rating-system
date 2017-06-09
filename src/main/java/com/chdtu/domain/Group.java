@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
-@Table(name="STUDENT_GROUP")
+@Table(name = "STUDENT_GROUP")
 public class Group extends BaseEntity {
     private String name;
 
@@ -15,7 +15,7 @@ public class Group extends BaseEntity {
     private Set<Student> students;
 
     @ManyToOne
-    private Faculty faculty;
+    private Department department;
 
     public String getName() {
         return name;
@@ -33,11 +33,11 @@ public class Group extends BaseEntity {
         this.students = students;
     }
 
-    public Faculty getFaculty() {
-        return faculty;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
