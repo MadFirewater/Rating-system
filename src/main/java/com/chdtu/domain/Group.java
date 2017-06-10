@@ -17,6 +17,14 @@ public class Group extends BaseEntity {
     @ManyToOne
     private Department department;
 
+    public Group() {
+    }
+
+    public Group(String name, Department department) {
+        this.name = name;
+        this.department = department;
+    }
+
     public String getName() {
         return name;
     }
