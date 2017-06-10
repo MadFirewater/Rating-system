@@ -2,6 +2,8 @@ package com.chdtu.service;
 
 import com.chdtu.domain.Department;
 import com.chdtu.domain.Faculty;
+import com.chdtu.domain.Group;
+import com.chdtu.domain.Subject;
 import com.chdtu.domain.auth.Role;
 import com.chdtu.domain.auth.User;
 import com.chdtu.repository.*;
@@ -29,6 +31,9 @@ public class BootstrapService implements InitializingBean {
     @Autowired
     private GroupRepository groupRepository;
 
+    @Autowired
+    private SubjectRepository subjectRepository;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         if (((List<User>) userRepository.findAll()).size() == 0) {
@@ -46,6 +51,17 @@ public class BootstrapService implements InitializingBean {
             bootstrapFaculty("ФХТСО");
             bootstrapFaculty("ФЕУ");
             bootstrapFaculty("ЛФ");
+            bootstrapDepartment("Комп. науки", faculty);
+            bootstrapDepartment("Інф. технології", faculty);
+            bootstrapDepartment("Мережі", faculty);
+            bootstrapGroup("ПЗ-124", department);
+            bootstrapGroup("СКС-123", department);
+            bootstrapGroup("ФМЛ-134", department);
+            bootstrapGroup("ЗПЗ-144", department);
+            bootstrapSubject("Матан");
+            bootstrapSubject("Фізика");
+            bootstrapSubject("Програмування");
+            bootstrapSubject("Мережі");
         }
 
     }
@@ -70,5 +86,18 @@ public class BootstrapService implements InitializingBean {
         return department;
     }
 
+    private Group bootstrapGroup(String name, Department department) {
+        Group group = new Group();
+        group.setName(name);
+        group.setDepartment(department);
+        groupRepository.save(group);
+        return group;
+    }
 
+    private Subject bootstrapSubject(String name) {
+        Subject subject = new Subject();
+        subject.setName(name);
+        subjectRepository.save(subject);
+        return subject;
+    }
 }
