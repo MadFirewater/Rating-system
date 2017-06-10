@@ -2,9 +2,9 @@
 
   <div class="login-title">Login to the RaitingSystem</div>
   <div class="login-block">
-    <form class="login-form">
-      <input class="email" placeholder="Email">
-      <input type="password" class="password" placeholder="Password">
+    <form class="login-form" [formGroup]="loginForm" *ngIf="active" (ngSubmit)="onSubmit()">
+      <input formControlName="username" class="email" placeholder="Email">
+      <input formControlName="password" type="password" class="password" placeholder="Password">
       <button class="login-button" type="submit">Login</button>
     </form>
   </div>
