@@ -23,10 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.userDetailsService(userDetailsService)
-                .formLogin()
+//                .formLogin()
                 // NOTE removed .loginPage("/login")
-                .permitAll()
-                .and()
+//                .permitAll()
+//                .and()
                 .authorizeRequests()
 //                .antMatchers("/*.ico", "/*.eot", "/*.svg", "/*.woff2", "/*.ttf", "/*.woff", "/index.html",
 //                        "/*.js","/assets/**","/app/**").permitAll()
