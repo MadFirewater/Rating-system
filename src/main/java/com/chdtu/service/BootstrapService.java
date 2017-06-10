@@ -40,6 +40,12 @@ public class BootstrapService implements InitializingBean {
             bootstrapUser("student", "student", 3L);
             Faculty faculty = bootstrapFaculty("ФІТІС");
             Department department = bootstrapDepartment("Програмна інженерія", faculty);
+            bootstrapFaculty("БФ");
+            bootstrapFaculty("ФТМД");
+            bootstrapFaculty("ФЕТ");
+            bootstrapFaculty("ФХТСО");
+            bootstrapFaculty("ФЕУ");
+            bootstrapFaculty("ЛФ");
         }
 
     }

@@ -1,5 +1,6 @@
 package com.chdtu.controller;
 
+import com.chdtu.bean.UserInfoBean;
 import com.chdtu.domain.auth.Role;
 import com.chdtu.domain.auth.User;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,5 +29,15 @@ public class UserController {
     ) {
         Role role = ((User) (SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getRole();
         return role.getName();
+    }
+
+    @RequestMapping(value = "api/userInfo", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    UserInfoBean getUserInfo(HttpServletRequest request) {
+        UserInfoBean result = new UserInfoBean();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        result.setUsername(user.getUsername());
+        result.setRole(user.getRole().getName());
+        return result;
     }
 }
