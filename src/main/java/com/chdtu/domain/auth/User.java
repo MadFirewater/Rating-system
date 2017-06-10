@@ -23,11 +23,11 @@ public class User extends BaseEntity implements UserDetails {
     @JoinColumn(nullable = false)
     private Role role;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(nullable = true)
     private Student student;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(nullable = true)
     private Teacher teacher;
 

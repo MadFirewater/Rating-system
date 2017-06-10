@@ -1,5 +1,6 @@
 package com.chdtu.controller;
 
+import com.chdtu.domain.auth.Role;
 import com.chdtu.domain.auth.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,12 +22,11 @@ public class UserController {
         return result;
     }
 
-//    @RequestMapping(value = "/api/getCurrentUserRole", method = RequestMethod.GET, produces = "application/json")
-//    public @ResponseBody
-//    String getCurrentUserRole() {
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        String rootUrl = request.getRequestURL().toString().replace(request.getRequestURI(), request.getContextPath());
-//        String result = "{'href':'" + rootUrl + "/api/users/" + user.getId() + "'}";
-//        return result;
-//    }
+    @RequestMapping(value = "/api/getCurrentUserRole", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    String getCurrentUserRole(
+    ) {
+        Role role = ((User) (SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getRole();
+        return role.getName();
+    }
 }
