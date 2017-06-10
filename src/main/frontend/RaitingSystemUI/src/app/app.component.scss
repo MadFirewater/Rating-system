@@ -1,4 +1,5 @@
 @import "../assets/app-variables";
+@import "../assets/colours";
 
 :host {
   height: 100%;
@@ -12,17 +13,22 @@
   flex-direction: column;
 
   .rait-top-bar {
+    display: flex;
+    align-items: center;
     height: $rait-top-bar-height;
     width: 100%;
+    background-color: $rait-blue-light;
 
     .rait-title {
-      margin: 0;
+      margin: 0 0 0 10px;
+      color: #fff;
     }
   }
 
   .rait-content {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 60px);
+    overflow: auto;
   }
 
 }
