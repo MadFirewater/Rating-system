@@ -1,0 +1,46 @@
+@import "../../assets/colours";
+
+:host {
+  height: 100%;
+}
+
+.login-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #FFFFFF;
+  background-color: $rait-blue-light;
+
+  .login-title {
+    font-size: 20px;
+  }
+
+  .login-block {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+
+    .login-form {
+      width: 300px;
+      height: 300px;
+      padding: 16px;
+      border: 1px solid #FFFFFF;
+      border-radius: 4px;
+
+      .email {
+        background: transparent;
+        width: 100%;
+      }
+
+      .password {
+        width: 100%;
+      }
+
+      .login-button {
+
+      }
+    }
+  }
+}

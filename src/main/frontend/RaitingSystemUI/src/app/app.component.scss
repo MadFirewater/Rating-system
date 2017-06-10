@@ -1,0 +1,29 @@
+@import "../assets/app-variables";
+
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.rait {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .rait-top-bar {
+    height: $rait-top-bar-height;
+    width: 100%;
+
+    .rait-title {
+      margin: 0;
+    }
+  }
+
+  .rait-content {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
