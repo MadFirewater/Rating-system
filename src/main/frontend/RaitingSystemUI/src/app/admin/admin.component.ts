@@ -10,23 +10,23 @@ export class AdminComponent implements OnInit {
   menuItems = [
     {
       title: 'Faculties',
-      link: '/faculty'
+      link: '/app/faculty'
     },
     {
       title: 'Departments',
-      link: '/department'
+      link: '/app/department'
     },
     {
       title: 'Groups',
-      link: '/group'
+      link: '/app/group'
     },
     {
       title: 'Subjects',
-      link: '/subject'
+      link: '/app/subject'
     },
     {
       title: 'Learn processes',
-      link: '/learnprocess'
+      link: '/app/learnprocess'
     }
   ];
 

@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AdminComponent } from './admin/admin.component';
+import {FacultyModule} from './faculty/faculty.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AdminComponent } from './admin/admin.component';
     CoreModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    FacultyModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
