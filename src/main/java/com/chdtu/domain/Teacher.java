@@ -2,6 +2,7 @@ package com.chdtu.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Teacher extends BaseEntity {
@@ -13,6 +14,9 @@ public class Teacher extends BaseEntity {
     private String secondName;
 
     private String patronymic;
+
+    @ManyToOne
+    private Department department;
 
     public String getFirstName() {
         return firstName;
@@ -36,5 +40,13 @@ public class Teacher extends BaseEntity {
 
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
