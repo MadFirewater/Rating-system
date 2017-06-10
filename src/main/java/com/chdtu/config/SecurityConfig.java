@@ -28,13 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/*.ico", "/*.eot", "/*.svg", "/*.woff2", "/*.ttf", "/*.woff", "/index.html",
-                        "/*.js","/assets/**").permitAll()
+//                .antMatchers("/*.ico", "/*.eot", "/*.svg", "/*.woff2", "/*.ttf", "/*.woff", "/index.html",
+//                        "/*.js","/assets/**","/app/**").permitAll()
+                .antMatchers("/api/").authenticated()
                 .antMatchers("/api/users/**" +
                         "").hasRole("ADMIN")
-                .antMatchers("/").permitAll()
-                .anyRequest()
-                .authenticated().and().
+                .antMatchers("/**").permitAll()
+//                .antMatchers("/").permitAll()
+                .and().
                 csrf().disable();
 //                .loginProcessingUrl("/loginProcessing").successForwardUrl("/loginSuccess")
 //                .failureUrl("/login?error").usernameParameter("login").passwordParameter("password").and().logout()
