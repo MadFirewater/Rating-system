@@ -24,23 +24,39 @@
 
     .login-form {
       width: 300px;
-      height: 300px;
-      padding: 16px;
+      padding: 16px 16px 24px;
       border: 1px solid #FFFFFF;
       border-radius: 4px;
 
       .email {
-        background: transparent;
-        width: 100%;
+        @extend .form-input;
       }
 
       .password {
-        width: 100%;
+        @extend .form-input;
       }
 
       .login-button {
-
+        @extend .form-input;
+        height: 40px !important;
+        margin-top: 50px !important;
+        cursor: pointer;
       }
     }
+  }
+}
+
+.form-input {
+  margin-top: 20px;
+  height: 30px;
+  font-size: 15px;
+  background: transparent;
+  border: 1px solid #fff;
+  width: 100%;
+  color: #fff;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: #fff;
   }
 }

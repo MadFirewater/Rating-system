@@ -14,6 +14,6 @@ export class AppComponent {
   }
 
   isTopbarVisible(): boolean {
-    return !this.router.isActive('/login', true);
+    return !this.router.isActive('/signin', true);
   }
 }

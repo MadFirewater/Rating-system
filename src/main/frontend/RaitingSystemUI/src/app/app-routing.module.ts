@@ -3,8 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/signIn', pathMatch: 'full'},
-  {path: 'signIn', component: LoginComponent}
+  {path: '', redirectTo: '/signin', pathMatch: 'full'},
+  {path: 'signin', component: LoginComponent}
 ];
 
 @NgModule({
