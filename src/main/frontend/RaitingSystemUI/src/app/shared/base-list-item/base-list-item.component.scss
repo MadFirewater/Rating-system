@@ -1,0 +1,17 @@
+@import "../../../assets/colours";
+
+:host {
+  width: 60%;
+}
+
+.list-item {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  height: 100px;
+  background-color: $rait-blue-light;
+  border-radius: 8px;
+  margin-top: 20px;
+}

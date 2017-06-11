@@ -11,6 +11,10 @@ public class Department extends BaseEntity {
     private String name;
 
 
+    public Department() {
+
+    }
+
     public Department(String name, Faculty faculty) {
         this.name = name;
         this.faculty = faculty;
