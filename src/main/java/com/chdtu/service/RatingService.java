@@ -64,7 +64,7 @@ public class RatingService {
 
 
     public double getAverageGradeForTopicAndStudent(Long topicId, Set<Grade> grades) {
-        int gradeSum = 0;
+        double gradeSum = 0;
         for (Grade grade : grades) {
             if (grade.getTopic().getId().equals(topicId)) {
                 gradeSum += grade.getValue();
