@@ -2,7 +2,8 @@ package com.chdtu.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
 public class Grade extends BaseEntity {
@@ -16,7 +17,8 @@ public class Grade extends BaseEntity {
     @ManyToOne
     private Criteria criteria;
 
-    @Size(min = 1, max = 5)
+    @Min(1)
+    @Max(5)
     private Integer value;
 
     public Student getStudent() {

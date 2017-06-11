@@ -1,8 +1,7 @@
 package com.chdtu.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Student extends BaseEntity {
@@ -15,8 +14,11 @@ public class Student extends BaseEntity {
 
     private String patronymic;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Group group;
+
+    @OneToMany(mappedBy = "student")
+    private Set<Grade> grades;
 
     public String getFirstName() {
         return firstName;
@@ -49,4 +51,14 @@ public class Student extends BaseEntity {
     public void setGroup(Group group) {
         this.group = group;
     }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
+    }
+
+
 }

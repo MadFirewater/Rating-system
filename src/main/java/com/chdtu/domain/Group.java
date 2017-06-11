@@ -1,9 +1,6 @@
 package com.chdtu.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -11,7 +8,7 @@ import java.util.Set;
 public class Group extends BaseEntity {
     private String name;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
     private Set<Student> students;
 
     @ManyToOne

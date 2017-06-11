@@ -1,9 +1,6 @@
 package com.chdtu.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -13,13 +10,13 @@ LearningProcess extends BaseEntity {
     @ManyToOne
     private Subject subject;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Group> groups;
 
     @ManyToMany
     private Set<Teacher> teachers;
 
-    @OneToMany(mappedBy = "learningProcess")
+    @OneToMany(mappedBy = "learningProcess", fetch = FetchType.EAGER)
     private Set<Topic> topics;
 
     public Subject getSubject() {
