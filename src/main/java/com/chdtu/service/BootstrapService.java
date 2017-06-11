@@ -91,8 +91,8 @@ public class BootstrapService implements InitializingBean {
             bootstrapStudent("Анна", "Ніколаевна", group);
             bootstrapStudent("Єлена", "Петренко", group);
             bootstrapLearningProcess(subject, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group)));
-            bootstrapLearningProcess(subject3, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group, group2)));
-            bootstrapLearningProcess(subject2, new HashSet<>(Arrays.asList(teacher2)), new HashSet<>(Arrays.asList(group2)));
+            bootstrapLearningProcess(subject3, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group)));
+//            bootstrapLearningProcess(subject2, new HashSet<>(Arrays.asList(teacher2)), new HashSet<>(Arrays.asList(group2)));
             bootstrapRandomGradesForLearningProcesses();
         }
 
