@@ -1,11 +1,15 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
+import {GroupRating} from "../../core/base-entities";
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss']
 })
-export class BarChartComponent {
+export class BarChartComponent implements OnChanges {
+
+  @Input() entity: GroupRating;
+
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -17,13 +21,12 @@ export class BarChartComponent {
       }]
     }
   };
-  public barChartLabels: string[] = ['Topic 1', 'Topic 2', 'Topic 3', 'Topic ', '2010', '2011', '2012'];
+  public barChartLabels: string[] = [];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
 
   public barChartData: any[] = [
-    {data: [20, 30, 40, 50, 60, 70, 80], label: 'Series A'},
-    {data: [30, 45, 10, 50, 60, 74, 80], label: 'Series B'},
+    {data: [], label: ''}
   ];
 
   // events
@@ -33,6 +36,14 @@ export class BarChartComponent {
 
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  ngOnChanges() {
+    for (let i = 0; i < this.entity.ratings.length; i++) {
+      this.barChartLabels.push(this.entity.ratings[i].topicName);
+      this.barChartData[0].data.push(this.entity.ratings[i].averageGrade);
+    }
+    this.barChartData[0].label = this.entity.subjectName;
   }
 
 }

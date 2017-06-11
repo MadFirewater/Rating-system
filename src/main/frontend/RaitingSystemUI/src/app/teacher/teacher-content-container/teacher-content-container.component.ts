@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {TeacherService} from "../teacher.service";
+import {GroupRating} from "../../core/base-entities";
 
 @Component({
   selector: 'app-teacher-content-container',
@@ -10,6 +11,7 @@ export class TeacherContentContainerComponent implements OnInit, OnChanges {
 
   @Input() contentType: string;
   entities: any[];
+  groupRatings: GroupRating[];
 
   constructor(private teacherService: TeacherService) { }
 
@@ -33,6 +35,10 @@ export class TeacherContentContainerComponent implements OnInit, OnChanges {
       }
       case 'students': {
         this.teacherService.getStudents().subscribe((res: {}[]) => {this.entities = res});
+        break;
+      }
+      case 'raiting': {
+        this.teacherService.getRating().subscribe((res: GroupRating[]) => {this.groupRatings = res})
       }
     }
   }

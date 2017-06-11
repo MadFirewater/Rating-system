@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {HttpErrorHandlerService} from '../core/http-error-handler.service';
+import {GroupRating} from "../core/base-entities";
 
 @Injectable()
 export class TeacherService {
@@ -38,6 +39,15 @@ export class TeacherService {
     return this.http.get('/api/students')
       .map((response: Response) => {
         return response.json()._embedded.students;
+      })
+      .catch(this.httpHandler.handleError);
+  }
+
+  getRating(): Observable<GroupRating[]> {
+
+    return this.http.get('/api/rating')
+      .map((response: Response) => {
+        return response.json();
       })
       .catch(this.httpHandler.handleError);
   }

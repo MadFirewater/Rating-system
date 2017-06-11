@@ -1,4 +1,7 @@
 <app-base-list *ngIf="contentType==='subjects' ||
                contentType==='groups' || contentType==='students'"
                [items]="entities"></app-base-list>
-<app-bar-chart *ngIf="contentType==='raiting'"></app-bar-chart>
+<div *ngIf="contentType === 'raiting'">
+  <app-bar-chart *ngFor="let entity of groupRatings" [entity]="entity"></app-bar-chart>
+</div>
+
