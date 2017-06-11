@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { TeacherRoutingModule } from "./teacher-routing.module";
 import { TeacherContentContainerComponent } from './teacher-content-container/teacher-content-container.component';
 import { TeacherPageComponent } from "./teacher-page/teacher-page.component";
@@ -10,7 +11,8 @@ import {SharedModule} from "../shared/shared.module";
   imports: [
     CommonModule,
     TeacherRoutingModule,
-    SharedModule
+    SharedModule,
+    ChartsModule
   ],
   declarations: [
     TeacherPageComponent,

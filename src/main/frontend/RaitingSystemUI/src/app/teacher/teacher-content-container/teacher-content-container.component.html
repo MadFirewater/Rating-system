@@ -1,1 +1,4 @@
-<app-base-list [items]="entities"></app-base-list>
+<app-base-list *ngIf="contentType==='subjects' ||
+               contentType==='groups' || contentType==='students'"
+               [items]="entities"></app-base-list>
+<app-bar-chart *ngIf="contentType==='raiting'"></app-bar-chart>

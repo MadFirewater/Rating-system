@@ -11,6 +11,7 @@ import { AdminComponent } from './admin/admin.component';
 import { FacultyModule} from './faculty/faculty.module';
 import { SharedModule} from './shared/shared.module';
 import { TeacherModule} from "./teacher/teacher.module";
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TeacherModule} from "./teacher/teacher.module";
     HttpModule,
     FacultyModule,
     SharedModule,
-    TeacherModule
+    TeacherModule,
+    ChartsModule
   ],
   bootstrap: [AppComponent]
 })
