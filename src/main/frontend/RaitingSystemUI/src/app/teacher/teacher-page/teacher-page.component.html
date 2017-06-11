@@ -1,15 +1,15 @@
 <div class="wrapper">
   <div class="menu">
     <ul class="menu-items">
-      <li class="menu-item">Subjects</li>
-      <li class="menu-item">Groups</li>
-      <li class="menu-item">Students</li>
-      <li class="menu-item">Raiting</li>
-      <li class="menu-item">Learn processes</li>
+      <li class="menu-item" (click)="selectMenuItem('subjects')" [class.selected]="selectedMenuItem === 'subjects'">Subjects</li>
+      <li class="menu-item" (click)="selectMenuItem('groups')" [class.selected]="selectedMenuItem === 'groups'">Groups</li>
+      <li class="menu-item" (click)="selectMenuItem('students')" [class.selected]="selectedMenuItem === 'students'">Students</li>
+      <li class="menu-item" (click)="selectMenuItem('raiting')" [class.selected]="selectedMenuItem === 'raiting'">Raiting</li>
+      <li class="menu-item" (click)="selectMenuItem('learn processes')" [class.selected]="selectedMenuItem === 'learn processes'">Learn processes</li>
     </ul>
   </div>
   <div class="content-container">
-    <app-teacher-content-container></app-teacher-content-container>
+    <app-teacher-content-container [contentType]="selectedMenuItem"></app-teacher-content-container>
   </div>
 </div>
 

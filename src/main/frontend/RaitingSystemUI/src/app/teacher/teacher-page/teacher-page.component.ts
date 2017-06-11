@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherPageComponent implements OnInit {
 
+  selectedMenuItem = 'subjects';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  selectMenuItem(selectedItem: string) {
+    this.selectedMenuItem = selectedItem;
   }
 
 }

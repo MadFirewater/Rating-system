@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BaseListComponent implements OnInit {
 
-  @Input() items: any;
+  @Input() items: any[];
 
   constructor() {
   }
