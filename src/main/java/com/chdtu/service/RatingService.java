@@ -56,7 +56,8 @@ public class RatingService {
             for (Student student : group.getStudents()) {
                 sum += getAverageGradeForTopicAndStudent(topic.getId(), student.getGrades());
             }
-            groupRatingForTopic.setAverageGrade(sum / (group.getStudents().size()));
+            double average=sum / (group.getStudents().size());
+            groupRatingForTopic.setAverageGrade(Math.round(average * 100.0) / 100.0);
             result.add(groupRatingForTopic);
         }
         return result;
