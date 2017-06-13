@@ -1,8 +1,8 @@
 export class Links {
-  self: Self;
+  self: BaseEntity;
 }
 
-export class Self {
+export class BaseEntity {
   href: string;
 }
 
@@ -21,5 +21,14 @@ export class GroupRating {
 export class Rating {
   topicName: string;
   averageGrade: number;
+}
+
+export class LearningProcesses {
+  _links: BaseEntity;
+  learningProcesses: BaseEntity;
+  groups: BaseEntity;
+  subject: BaseEntity;
+  teachers: BaseEntity;
+  topics: BaseEntity;
 }
 

@@ -6,6 +6,7 @@ import { TeacherContentContainerComponent } from './teacher-content-container/te
 import { TeacherPageComponent } from "./teacher-page/teacher-page.component";
 import {TeacherService} from "./teacher.service";
 import {SharedModule} from "../shared/shared.module";
+import {LearnProcessRatingItemComponent} from "./learn-process-rating-item/learn-process-rating-item.component";
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {SharedModule} from "../shared/shared.module";
   ],
   declarations: [
     TeacherPageComponent,
-    TeacherContentContainerComponent
+    TeacherContentContainerComponent,
+    LearnProcessRatingItemComponent
   ],
   providers: [TeacherService]
 })

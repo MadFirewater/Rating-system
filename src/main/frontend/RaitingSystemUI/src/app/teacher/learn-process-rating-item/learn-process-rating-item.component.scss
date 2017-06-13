@@ -1,0 +1,49 @@
+@import "../../../assets/colours";
+
+:host {
+  width: 60%;
+}
+
+.rating-item {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: $rait-blue-light;
+  margin-top: 20px;
+  border-radius: 8px;
+
+  .student-info {
+    color: #fff;
+    width: 100px;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 8px;
+  }
+
+  .rating-block {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .criteria {
+      display: flex;
+
+      .grade {
+        background-color: #fff;
+        padding: 5px;
+        margin-right: 15px;
+        margin-top: 3px;
+        cursor: pointer;
+        color: $rait-blue-light;
+
+        &:hover {
+          background-color: #FE819B;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
