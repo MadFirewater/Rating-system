@@ -20,6 +20,9 @@ public class Student extends BaseEntity {
     @OneToMany(mappedBy = "student")
     private Set<Grade> grades;
 
+    @Column(unique = true, nullable = false)
+    private String recordBookNumber;
+
     public String getFirstName() {
         return firstName;
     }
@@ -61,4 +64,11 @@ public class Student extends BaseEntity {
     }
 
 
+    public String getRecordBookNumber() {
+        return recordBookNumber;
+    }
+
+    public void setRecordBookNumber(String recordBookNumber) {
+        this.recordBookNumber = recordBookNumber;
+    }
 }

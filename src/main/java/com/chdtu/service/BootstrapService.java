@@ -85,11 +85,11 @@ public class BootstrapService implements InitializingBean {
             bootstrapUser("teacher", "teacher", 2L, teacher, null);
             Teacher teacher2 = bootstrapTeacher("Василь", "Василенко", department);
             bootstrapTeacher("Олексій", "Олексієнко", department);
-            Student student = bootstrapStudent("Ніколай", "Ніколенко", group);
+            Student student = bootstrapStudent("Ніколай", "Ніколенко", group,"n1");
             bootstrapUser("student", "student", 3L, null, student);
-            bootstrapStudent("Аліна", "Петренко", group);
-            bootstrapStudent("Анна", "Ніколаевна", group);
-            bootstrapStudent("Єлена", "Петренко", group);
+            bootstrapStudent("Аліна", "Петренко", group,"n2");
+            bootstrapStudent("Анна", "Ніколаевна", group,"n34");
+            bootstrapStudent("Єлена", "Петренко", group,"n35");
             bootstrapLearningProcess(subject, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group)));
             bootstrapLearningProcess(subject3, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group)));
 //            bootstrapLearningProcess(subject2, new HashSet<>(Arrays.asList(teacher2)), new HashSet<>(Arrays.asList(group2)));
@@ -152,11 +152,12 @@ public class BootstrapService implements InitializingBean {
         return teacher;
     }
 
-    private Student bootstrapStudent(String firstName, String secondName, Group group) {
+    private Student bootstrapStudent(String firstName, String secondName, Group group, String recordBookNumber) {
         Student student = new Student();
         student.setFirstName(firstName);
         student.setSecondName(secondName);
         student.setGroup(group);
+        student.setRecordBookNumber(recordBookNumber);
         studentRepository.save(student);
         return student;
     }
