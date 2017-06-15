@@ -1,0 +1,7 @@
+<div class="toolbar">
+  <div class="add-action" (click)="onSelect()">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    Add
+  </div>
+</div>
+<app-base-list *ngIf="students" [items]="students" [entityType]="'student'"></app-base-list>

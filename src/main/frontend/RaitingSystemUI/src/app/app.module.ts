@@ -12,6 +12,8 @@ import { FacultyModule} from './faculty/faculty.module';
 import { SharedModule} from './shared/shared.module';
 import { TeacherModule} from "./teacher/teacher.module";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {StudentModule} from "./student/student.module";
+import { FileUploadModule } from "ng2-file-upload";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     FacultyModule,
     SharedModule,
     TeacherModule,
-    ChartsModule
+    ChartsModule,
+    StudentModule,
+    FileUploadModule
   ],
   bootstrap: [AppComponent]
 })

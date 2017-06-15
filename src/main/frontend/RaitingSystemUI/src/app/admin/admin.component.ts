@@ -21,12 +21,12 @@ export class AdminComponent implements OnInit {
       link: '/app/group'
     },
     {
-      title: 'Subjects',
-      link: '/app/subject'
+      title: 'Students',
+      link: '/app/student'
     },
     {
-      title: 'Learn processes',
-      link: '/app/learnprocess'
+      title: 'Subjects',
+      link: '/app/subject'
     }
   ];
 

@@ -17,7 +17,9 @@ export class BaseListItemComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-
+    if (this.entityType === 'student') {
+      this.item.name = `${this.item.firstName} ${this.item.secondName}`;
+    }
   }
 
 }

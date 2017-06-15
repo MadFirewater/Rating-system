@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-base-list',
   templateUrl: './base-list.component.html',
   styleUrls: ['./base-list.component.scss']
 })
-export class BaseListComponent implements OnInit {
+export class BaseListComponent implements OnInit, OnChanges {
 
   @Input() items: any[];
   @Input() entityType: string;
@@ -14,6 +14,10 @@ export class BaseListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+
   }
 
 }

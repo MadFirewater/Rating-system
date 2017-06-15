@@ -1,0 +1,8 @@
+<div class="export-action">
+  <div>Export list of students from excel:</div>
+  <input class="input-file" type="file" ng2FileSelect [uploader]="uploader">
+</div>
+<div class="upload-block">
+  <button type="button" (click)="uploadFile()">Upload</button>
+  <i *ngIf="uploader.queue[0] && uploader.queue[0].isUploading" class="fa fa-spinner fa-spin spinner-loading"></i>
+</div>

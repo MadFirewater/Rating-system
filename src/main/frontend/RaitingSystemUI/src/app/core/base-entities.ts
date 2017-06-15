@@ -32,3 +32,10 @@ export class LearningProcesses {
   topics: BaseEntity;
 }
 
+export class Student {
+  firstName: string;
+  secondName: string;
+  patronymic: string;
+  _links: Links;
+}
+

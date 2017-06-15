@@ -1,0 +1,19 @@
+@import "../../../assets/colours";
+
+.export-action {
+  color: $rait-blue-light;
+
+  .input-file {
+    margin-top: 4px;
+  }
+}
+
+.upload-block {
+  display: flex;
+
+  .spinner-loading {
+    margin-left: 5px;
+    font-size: 1.6em;
+    color: $rait-blue-light;
+  }
+}

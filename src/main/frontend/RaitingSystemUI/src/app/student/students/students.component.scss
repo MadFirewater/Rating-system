@@ -1,0 +1,20 @@
+@import "../../../assets/colours";
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  height: 50px;
+  border-bottom: 1px solid #dcdcdc;
+
+  .add-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100%;
+    color: #fff;
+    background-color: $rait-blue-light;
+    cursor: pointer;
+  }
+}
