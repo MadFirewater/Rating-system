@@ -1,5 +1,8 @@
 package com.chdtu.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -15,9 +18,11 @@ public class Student extends BaseEntity {
     private String patronymic;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
     private Group group;
 
     @OneToMany(mappedBy = "student")
+    @JsonIgnore
     private Set<Grade> grades;
 
     @Column(unique = true, nullable = false)

@@ -1,9 +1,6 @@
 package com.chdtu.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -17,7 +14,7 @@ public class Teacher extends BaseEntity {
 
     private String patronymic;
 
-    @ManyToMany(mappedBy = "teachers")
+    @ManyToMany(mappedBy = "teachers", fetch = FetchType.EAGER)
     private Set<LearningProcess> learningProcesses;
 
     @ManyToOne

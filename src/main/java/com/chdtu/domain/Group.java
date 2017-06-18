@@ -1,5 +1,7 @@
 package com.chdtu.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,9 +11,10 @@ public class Group extends BaseEntity {
     private String name;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private Set<Student> students;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Department department;
 
     @OneToMany(mappedBy = "group")

@@ -1,5 +1,7 @@
 package com.chdtu.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -23,6 +25,7 @@ public class Department extends BaseEntity {
     @ManyToOne
     private Faculty faculty;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "department")
     private Set<Group> group;
 
