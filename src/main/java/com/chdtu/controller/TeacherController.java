@@ -11,6 +11,7 @@ import com.chdtu.domain.auth.User;
 import com.chdtu.repository.GroupRepository;
 import com.chdtu.repository.LearningProcessRepository;
 import com.chdtu.repository.StudentRepository;
+import com.chdtu.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -35,19 +36,29 @@ public class TeacherController {
     @Autowired
     LearningProcessRepository learningProcessRepository;
 
+    @Autowired
+    SubjectRepository subjectRepository;
+
     @PreAuthorize("hasRole('ROLE_TEACHER')")
     @RequestMapping(value = "api/selectGroups", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
-    Set<GroupBean> getTeacherGroups(@RequestParam(required = false) Long departmentId) {
+    Set<GroupBean> getTeacherGroups(@RequestParam(required = false) Long subjectId) {
         Teacher teacher = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getTeacher();
-        Set<Group> allGroups = new HashSet<>();
         Set<GroupBean> result = new HashSet<>();
-        teacher.getLearningProcesses().forEach((x) -> allGroups.add(x.getGroup()));
-        for (Group group : allGroups) {
-            if (group.getDepartment().getId().equals(departmentId) || departmentId == null) {
-                result.add(new GroupBean(group.getId(), group.getName()));
+        Set<Teacher> teachers = new HashSet<>();
+        teachers.add(teacher);
+        if (subjectId != null) {
+            Set<LearningProcess> learningProcesses = learningProcessRepository.findAllBySubjectAndTeachers(subjectRepository.findOne(subjectId), teachers);
+            for (LearningProcess learningProcess : learningProcesses) {
+                result.add(new GroupBean(learningProcess.getGroup().getId(), learningProcess.getGroup().getName()));
+            }
+        } else {
+            Set<LearningProcess> learningProcesses = learningProcessRepository.findAllByTeachers(teachers);
+            for (LearningProcess learningProcess : learningProcesses) {
+                result.add(new GroupBean(learningProcess.getGroup().getId(), learningProcess.getGroup().getName()));
             }
         }
+
         return result;
     }
 
