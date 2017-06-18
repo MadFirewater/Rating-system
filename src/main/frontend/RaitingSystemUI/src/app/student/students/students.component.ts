@@ -23,8 +23,4 @@ export class StudentsComponent implements OnInit {
       });
   }
 
-  onSelect() {
-    this.router.navigate(['app/student/add']);
-  }
-
 }

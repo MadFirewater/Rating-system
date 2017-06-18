@@ -1,14 +1,14 @@
-import {Injectable} from "@angular/core";
-import {Headers, Http, RequestOptions, Response} from "@angular/http";
-import {Login} from "../login/login.model";
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/throw";
-import {HttpErrorHandlerService} from "./http-error-handler.service";
-import {LocalStorageService} from "./local-storage.service";
-import {UserInfo} from "./base-entities";
-import {Router} from "@angular/router";
+import {Injectable} from '@angular/core';
+import {Headers, Http, RequestOptions, Response} from '@angular/http';
+import {Login} from '../login/login.model';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import {HttpErrorHandlerService} from './http-error-handler.service';
+import {LocalStorageService} from './local-storage.service';
+import {UserInfo} from './base-entities';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -27,9 +27,9 @@ export class AuthService {
     return this.http.post('/login', query, options)
       .map((response: Response) => {
         this.getUserInfo().subscribe((resp: UserInfo) => {
-          console.log("!!!!");
-          this.localStorageService.save("username", resp.username);
-          this.localStorageService.save("role", resp.role);
+          console.log('!!!!');
+          this.localStorageService.save('username', resp.username);
+          this.localStorageService.save('role', resp.role);
           this.resolveRedirect(resp.role);
         }, (error => {
 
@@ -52,7 +52,7 @@ export class AuthService {
   getUserInfo(): Observable<UserInfo> {
     return this.http.get('/api/userInfo').map((response: Response) => {
       return response.json();
-    })
+    });
   }
 
   resolveRedirect(role: string) {

@@ -6,9 +6,9 @@ export class BaseEntity {
   href: string;
 }
 
-export class UserInfo{
-  username:string;
-  role:string;
+export class UserInfo {
+  username: string;
+  role: string;
 }
 
 export class GroupRating {
@@ -38,4 +38,3 @@ export class Student {
   patronymic: string;
   _links: Links;
 }
-

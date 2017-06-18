@@ -6,12 +6,27 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {HttpErrorHandlerService} from '../core/http-error-handler.service';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class FacultyService {
 
   constructor(private http: Http,
-              private httpHandler: HttpErrorHandlerService) {
+              private httpHandler: HttpErrorHandlerService,
+              private router: Router) {
+  }
+
+  createFaculty(body: Faculty): void {
+
+    this.http.post('/api/faculties', body)
+      .map((response: Response) => {
+        if (response.json()) {
+          console.log(response.json());
+          this.router.navigate(['/app/faculty']);
+        }
+      })
+      .catch(this.httpHandler.handleError)
+      .subscribe();
   }
 
   getFaculties(): Observable<Faculty[]> {

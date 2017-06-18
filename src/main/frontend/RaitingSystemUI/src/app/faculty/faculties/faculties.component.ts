@@ -10,6 +10,8 @@ import {Faculty} from '../faculty.model';
 export class FacultiesComponent implements OnInit {
 
   faculties: Faculty[];
+  link = 'app/faculty/add';
+  pageTitle = 'Faculties';
 
   constructor(private facultyService: FacultyService) {
   }

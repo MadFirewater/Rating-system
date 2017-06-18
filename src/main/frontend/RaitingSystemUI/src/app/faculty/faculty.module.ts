@@ -5,14 +5,18 @@ import { FacultiesComponent } from './faculties/faculties.component';
 import {FacultyRoutingModule} from './faculty-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {FacultyService} from './faculty.service';
+import { FacultyAddComponent } from './faculty-add/faculty-add.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     FacultyRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [FacultyPageComponent, FacultiesComponent],
+  declarations: [FacultyPageComponent, FacultiesComponent, FacultyAddComponent],
   providers: [
     FacultyService
   ]

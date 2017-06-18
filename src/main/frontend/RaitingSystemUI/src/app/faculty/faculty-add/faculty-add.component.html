@@ -1,0 +1,9 @@
+<div class="faculty-wrapper">
+  <div class="faculty-title">Create faculty:</div>
+  <div class="faculty-block">
+    <form class="faculty-form" [formGroup]="facultyForm" *ngIf="active" (ngSubmit)="onSubmit()">
+      <input formControlName="name" class="name" placeholder="Name">
+      <button class="submit-button" type="submit">Create</button>
+    </form>
+  </div>
+</div>
