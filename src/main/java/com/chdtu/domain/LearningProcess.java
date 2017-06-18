@@ -10,8 +10,8 @@ LearningProcess extends BaseEntity {
     @ManyToOne
     private Subject subject;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Group> groups;
+    @ManyToOne
+    private Group group;
 
     @ManyToMany
     private Set<Teacher> teachers;
@@ -27,12 +27,12 @@ LearningProcess extends BaseEntity {
         this.subject = subject;
     }
 
-    public Set<Group> getGroups() {
-        return groups;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
     public Set<Teacher> getTeachers() {

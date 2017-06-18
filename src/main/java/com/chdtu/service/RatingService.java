@@ -34,13 +34,12 @@ public class RatingService {
         List<GroupRatingBean> result = new ArrayList<>();
         for (LearningProcess learningProcess : learningProcesses) {
             GroupRatingBean groupRatingBean = new GroupRatingBean();
-            for (Group group : learningProcess.getGroups()) {
-                groupRatingBean.setGroupId(group.getId());
-                groupRatingBean.setGroupName(group.getName());
-                groupRatingBean.setSubjectName(learningProcess.getSubject().getName());
-                getAverageRatingForGroup(learningProcess, group);
-                groupRatingBean.setRatings(getAverageRatingForGroup(learningProcess, group));
-            }
+            Group group = learningProcess.getGroup();
+            groupRatingBean.setGroupId(group.getId());
+            groupRatingBean.setGroupName(group.getName());
+            groupRatingBean.setSubjectName(learningProcess.getSubject().getName());
+            getAverageRatingForGroup(learningProcess, group);
+            groupRatingBean.setRatings(getAverageRatingForGroup(learningProcess, group));
             result.add(groupRatingBean);
         }
         return result;
@@ -56,7 +55,7 @@ public class RatingService {
             for (Student student : group.getStudents()) {
                 sum += getAverageGradeForTopicAndStudent(topic.getId(), student.getGrades());
             }
-            double average=sum / (group.getStudents().size());
+            double average = sum / (group.getStudents().size());
             groupRatingForTopic.setAverageGrade(Math.round(average * 100.0) / 100.0);
             result.add(groupRatingForTopic);
         }

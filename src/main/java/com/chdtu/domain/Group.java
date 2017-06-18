@@ -14,6 +14,9 @@ public class Group extends BaseEntity {
     @ManyToOne
     private Department department;
 
+    @OneToMany(mappedBy = "group")
+    private Set<LearningProcess> learningProcesses;
+
     public Group() {
     }
 
@@ -44,5 +47,13 @@ public class Group extends BaseEntity {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public Set<LearningProcess> getLearningProcesses() {
+        return learningProcesses;
+    }
+
+    public void setLearningProcesses(Set<LearningProcess> learningProcesses) {
+        this.learningProcesses = learningProcesses;
     }
 }

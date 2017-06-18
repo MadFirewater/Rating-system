@@ -85,13 +85,13 @@ public class BootstrapService implements InitializingBean {
             bootstrapUser("teacher", "teacher", 2L, teacher, null);
             Teacher teacher2 = bootstrapTeacher("Василь", "Василенко", department);
             bootstrapTeacher("Олексій", "Олексієнко", department);
-            Student student = bootstrapStudent("Ніколай", "Ніколенко", group,"n1");
+            Student student = bootstrapStudent("Ніколай", "Ніколенко", group, "n1");
             bootstrapUser("student", "student", 3L, null, student);
-            bootstrapStudent("Аліна", "Петренко", group,"n2");
-            bootstrapStudent("Анна", "Ніколаевна", group,"n34");
-            bootstrapStudent("Єлена", "Петренко", group,"n35");
-            bootstrapLearningProcess(subject, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group)));
-            bootstrapLearningProcess(subject3, new HashSet<>(Arrays.asList(teacher)), new HashSet<>(Arrays.asList(group)));
+            bootstrapStudent("Аліна", "Петренко", group, "n2");
+            bootstrapStudent("Анна", "Ніколаевна", group, "n34");
+            bootstrapStudent("Єлена", "Петренко", group, "n35");
+            bootstrapLearningProcess(subject, new HashSet<>(Arrays.asList(teacher)), group);
+            bootstrapLearningProcess(subject3, new HashSet<>(Arrays.asList(teacher)), group);
 //            bootstrapLearningProcess(subject2, new HashSet<>(Arrays.asList(teacher2)), new HashSet<>(Arrays.asList(group2)));
             bootstrapRandomGradesForLearningProcesses();
         }
@@ -162,11 +162,11 @@ public class BootstrapService implements InitializingBean {
         return student;
     }
 
-    private LearningProcess bootstrapLearningProcess(Subject subject, Set<Teacher> teachers, Set<Group> groups) {
+    private LearningProcess bootstrapLearningProcess(Subject subject, Set<Teacher> teachers, Group group) {
         LearningProcess learningProcess = new LearningProcess();
         learningProcess.setSubject(subject);
         learningProcess.setTeachers(teachers);
-        learningProcess.setGroups(groups);
+        learningProcess.setGroup(group);
         learningProcessRepository.save(learningProcess);
         Set<Topic> topics = new HashSet<>();
         topics.add(bootstrapTopic(learningProcess, "topic1"));
@@ -198,7 +198,7 @@ public class BootstrapService implements InitializingBean {
 
     private void bootstrapRandomGradesForLearningProcesses() {
         for (LearningProcess learningProcess : learningProcessRepository.findAll()) {
-            for (Group group : learningProcess.getGroups()) {
+           Group group=learningProcess.getGroup();
                 for (Student student : group.getStudents()) {
                     for (Topic topic : learningProcess.getTopics()) {
                         for (Criteria criteria : criteriaRepository.findAll()) {
@@ -208,7 +208,6 @@ public class BootstrapService implements InitializingBean {
                     }
                 }
 
-            }
         }
     }
 }
