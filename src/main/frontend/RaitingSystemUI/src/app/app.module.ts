@@ -14,13 +14,17 @@ import { TeacherModule} from "./teacher/teacher.module";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {StudentModule} from "./student/student.module";
 import { FileUploadModule } from "ng2-file-upload";
+import {DepartmentModule} from "./department/department.module";
+import {BaseAddComponent} from "./base/base-add.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    BaseAddComponent
   ],
   imports: [
     AppRoutingModule,
@@ -34,7 +38,8 @@ import { FileUploadModule } from "ng2-file-upload";
     TeacherModule,
     ChartsModule,
     StudentModule,
-    FileUploadModule
+    FileUploadModule,
+    DepartmentModule
   ],
   bootstrap: [AppComponent]
 })

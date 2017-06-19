@@ -4,6 +4,8 @@ import { DepartmentPageComponent } from './department-page/department-page.compo
 import { DepartmentsComponent } from './departments/departments.component';
 import {DepartmentRoutingModule} from "./department-routing.module";
 import {SharedModule} from "../shared/shared.module";
+import {DepartmentService} from "./department.service";
+import {DepartmentAddComponent} from "./department-add/department-add.component";
 
 @NgModule({
   imports: [
@@ -11,6 +13,7 @@ import {SharedModule} from "../shared/shared.module";
     DepartmentRoutingModule,
     SharedModule
   ],
-  declarations: [DepartmentPageComponent, DepartmentsComponent]
+  declarations: [DepartmentPageComponent, DepartmentsComponent, DepartmentAddComponent],
+  providers:[DepartmentService]
 })
 export class DepartmentModule { }

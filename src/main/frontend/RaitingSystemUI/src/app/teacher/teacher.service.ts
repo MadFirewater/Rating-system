@@ -27,7 +27,7 @@ export class TeacherService {
 
   getGroups(): Observable<{}[]> {
 
-    return this.http.get('/api/groups')
+    return this.http.get('/api/selectGroups')
       .map((response: Response) => {
         return response.json()._embedded.groups;
       })
