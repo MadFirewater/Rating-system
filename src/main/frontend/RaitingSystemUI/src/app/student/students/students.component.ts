@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 export class StudentsComponent implements OnInit {
 
   students: Student[];
+  link = 'app/student/add';
+  pageTitle = 'Students';
 
   constructor(private studentService: StudentService,
               private router: Router) { }
