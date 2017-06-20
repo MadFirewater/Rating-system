@@ -1,0 +1,53 @@
+@import "../../../assets/colours";
+
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.faculty-wrapper {
+  width: 32%;
+
+  .faculty-title {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    color: $rait-blue-light;
+  }
+
+  .faculty-block {
+
+    border: 1px solid $rait-blue-light;
+    padding: 8px 8px 20px;
+    margin-top: 8px;
+    @extend .radius;
+
+    .faculty-form {
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        margin-top: 20px;
+        height: 26px;
+        border: 1px solid $rait-blue-light;
+        @extend .radius;
+      }
+
+      .submit-button {
+        background-color: $rait-blue-light;
+        color: #fff;
+        margin-top: 20px;
+        height: 40px;
+        cursor: pointer;
+        border: none;
+        @extend .radius;
+      }
+    }
+  }
+}
+
+.radius {
+  border-radius: 4px;
+}

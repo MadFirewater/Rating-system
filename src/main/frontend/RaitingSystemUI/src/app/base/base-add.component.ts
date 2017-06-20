@@ -6,16 +6,17 @@ import {OnInit} from "@angular/core";
 export class BaseAddComponent implements OnInit {
   active = true;
   form: FormGroup;
-  service=null;
+  service = null;
+  fb: FormBuilder;
 
-  entity =null;
+  entity;
 
-  constructor(private fb: FormBuilder,
+  constructor(fb: FormBuilder,
               service,
-              form: FormGroup, entity) {
-    this.form = form;
-    this.entity=entity;
-    this.service=service;
+              entity) {
+    this.fb = fb;
+    this.service = service;
+    this.entity = entity;
   }
 
   ngOnInit(): void {

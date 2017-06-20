@@ -13,7 +13,7 @@ export class DepartmentService {
               private router: Router) {
   }
 
-  getDepartments(): Observable<Department[]> {
+  getEntities(): Observable<Department[]> {
     return this.http.get('/api/departments')
       .map((response: Response) => {
         if (response.json()._embedded.departments) {
@@ -22,6 +22,19 @@ export class DepartmentService {
         return response.json()._embedded.departments;
       })
       .catch(this.httpHandler.handleError);
+  }
+
+  createEntity(body: Department): void {
+
+    this.http.post('/api/departments', body)
+      .map((response: Response) => {
+        if (response.json()) {
+          console.log(response.json());
+          this.router.navigate(['/app/department']);
+        }
+      })
+      .catch(this.httpHandler.handleError)
+      .subscribe();
   }
 
 }

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {FacultyService} from '../faculty.service';
-import {Faculty} from '../faculty.model';
+import {Component, OnInit} from "@angular/core";
+import {FacultyService} from "../faculty.service";
+import {Faculty} from "../faculty.model";
 
 @Component({
   selector: 'app-faculties',
@@ -17,7 +17,7 @@ export class FacultiesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.facultyService.getFaculties()
+    this.facultyService.getEntities()
       .subscribe((faculties: Faculty[]) => {
         this.faculties = faculties;
       });

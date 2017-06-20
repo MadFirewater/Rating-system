@@ -10,14 +10,14 @@ import {Department} from "../department.model";
 export class DepartmentsComponent implements OnInit {
 
   departments: Department[];
-  link = 'app/departments/add';
+  link = 'app/department/add';
   pageTitle = 'Departments';
 
   constructor(private departmentService: DepartmentService) {
   }
 
   ngOnInit() {
-    this.departmentService.getDepartments()
+    this.departmentService.getEntities()
       .subscribe((departments: Department[]) => {
         this.departments = departments;
       });
