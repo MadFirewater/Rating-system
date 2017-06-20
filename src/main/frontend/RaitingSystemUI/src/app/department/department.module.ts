@@ -4,13 +4,19 @@ import { DepartmentPageComponent } from './department-page/department-page.compo
 import { DepartmentsComponent } from './departments/departments.component';
 import {DepartmentRoutingModule} from "./department-routing.module";
 import {SharedModule} from "../shared/shared.module";
+import {DepartmentService} from "./department.service";
+import {DepartmentAddComponent} from "./department-add/department-add.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
-    CommonModule,
     DepartmentRoutingModule,
-    SharedModule
+    CommonModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [DepartmentPageComponent, DepartmentsComponent]
+  declarations: [DepartmentPageComponent, DepartmentsComponent, DepartmentAddComponent],
+  providers:[DepartmentService]
 })
 export class DepartmentModule { }

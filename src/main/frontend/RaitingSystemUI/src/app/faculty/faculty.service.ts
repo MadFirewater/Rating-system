@@ -16,7 +16,7 @@ export class FacultyService {
               private router: Router) {
   }
 
-  createFaculty(body: Faculty): void {
+  createEntity(body: Faculty): void {
 
     this.http.post('/api/faculties', body)
       .map((response: Response) => {
@@ -29,7 +29,7 @@ export class FacultyService {
       .subscribe();
   }
 
-  getFaculties(): Observable<Faculty[]> {
+  getEntities(): Observable<Faculty[]> {
 
     return this.http.get('/api/faculties')
       .map((response: Response) => {
