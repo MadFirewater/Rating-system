@@ -16,6 +16,7 @@ import {StudentModule} from "./student/student.module";
 import {FileUploadModule} from "ng2-file-upload";
 import {DepartmentModule} from "./department/department.module";
 import {GroupModule} from "./group/group.module";
+import {SubjectModule} from "./subject/subject.module";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {GroupModule} from "./group/group.module";
     StudentModule,
     FileUploadModule,
     DepartmentModule,
-    GroupModule
+    GroupModule,
+    SubjectModule
   ],
   bootstrap: [AppComponent]
 })
