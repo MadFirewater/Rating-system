@@ -1,0 +1,23 @@
+@import "../../../assets/colours";
+
+:host {
+  width: 60%;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  font-weight: bold;
+  width: 100%;
+  color: #ffffff;
+  height: 100px;
+  background-color: $rait-blue-light;
+  border-radius: 8px;
+  margin-top: 20px;
+
+  .entry {
+    margin-top: 8px;
+    margin-left: 8px;
+  }
+}

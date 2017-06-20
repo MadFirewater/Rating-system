@@ -5,5 +5,5 @@
   <app-bar-chart *ngFor="let entity of groupRatings" [entity]="entity"></app-bar-chart>
 </div>
 <div class="learn-processes" *ngIf="contentType === 'learn processes'">
-  <app-learn-process-rating-item *ngFor="let item of learnProcesses" [item]="item"></app-learn-process-rating-item>
+  <app-learn-process-list [items]="learnProcesses"></app-learn-process-list>
 </div>
