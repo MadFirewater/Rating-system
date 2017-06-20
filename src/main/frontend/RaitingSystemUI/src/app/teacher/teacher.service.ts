@@ -29,7 +29,7 @@ export class TeacherService {
 
     return this.http.get('/api/selectGroups')
       .map((response: Response) => {
-        return response.json()._embedded.groups;
+        return response.json();
       })
       .catch(this.httpHandler.handleError);
   }
